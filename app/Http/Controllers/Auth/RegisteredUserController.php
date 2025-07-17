@@ -29,10 +29,12 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        // todo: implement verify phone
         $request->validate([
             'first_name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
             'phone' => ['required', 'string', 'max:20'],
+            'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -41,6 +43,7 @@ class RegisteredUserController extends Controller
             'first_name' => $request->first_name,
             'surname' => $request->surname,
             'phone' => $request->phone,
+            'photo' => $request->photo,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
