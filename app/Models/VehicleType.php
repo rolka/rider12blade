@@ -13,6 +13,9 @@ class VehicleType extends Model
     protected $fillable = [
         'name',
     ];
+    protected $casts = [
+        'name' => 'array',
+    ];
 
 
 }

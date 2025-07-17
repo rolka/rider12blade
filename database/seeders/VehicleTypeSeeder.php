@@ -14,22 +14,22 @@ class VehicleTypeSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            ['id' => 1, 'name' => ['en' => 'Hatchback', 'lt' => 'Hečbekas']],
-            ['id' => 2, 'name' => ['en' => 'Sedan',     'lt' => 'Sedanas']],
-            ['id' => 3, 'name' => ['en' => 'MPV',       'lt' => 'Vienatūris']],
-            ['id' => 4, 'name' => ['en' => 'SUV',       'lt' => 'Visureigis']],
-            ['id' => 5, 'name' => ['en' => 'Crossover', 'lt' => 'Krosoveris']],
-            ['id' => 6, 'name' => ['en' => 'Coupe',     'lt' => 'Kupė']],
-            ['id' => 7, 'name' => ['en' => 'Convertible','lt' => 'Kabrioletas']],
+            ['name' => ['en' => 'Hatchback', 'lt' => 'Hečbekas']],
+            ['name' => ['en' => 'Sedan',     'lt' => 'Sedanas']],
+            ['name' => ['en' => 'MPV',       'lt' => 'Vienatūris']],
+            ['name' => ['en' => 'SUV',       'lt' => 'Visureigis']],
+            ['name' => ['en' => 'Crossover', 'lt' => 'Krosoveris']],
+            ['name' => ['en' => 'Coupe',     'lt' => 'Kupė']],
+            ['name' => ['en' => 'Convertible','lt' => 'Kabrioletas']],
         ];
         // $type = VehicleType::first();
         // echo $type->getTranslation('name', 'lt'); // Hečbekas
         // echo $type->getTranslation('name', 'en'); // Hatchback
-
         foreach ($types as $type) {
-            VehicleType::updateOrCreate(['id' => $type['id']], [
-                'name' => $type['name']
-            ]);
+            VehicleType::updateOrCreate(
+                ['name->en' => $type['name']['en']],
+                $type
+            );
         }
     }
 }
