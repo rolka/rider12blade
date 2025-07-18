@@ -40,6 +40,8 @@ class DatabaseSeeder extends Seeder
         $this->call(VehicleTypeSeeder::class);
         $this->call(VehicleColorSeeder::class);
         UserVehicle::factory()->count(10)->create();
+        $this->call(CountrySeeder::class);
+        $this->call(CitySeeder::class);
 
     }
 }
