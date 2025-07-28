@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Ride;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\UserVehicle;
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
         UserVehicle::factory()->count(10)->create();
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
+        Ride::factory()->count(10)->create();
 
     }
 }
