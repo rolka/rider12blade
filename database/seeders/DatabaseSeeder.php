@@ -24,15 +24,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         User::firstOrCreate(
-            ['email' => 'test@example.com'],
+            ['email' => 'rzabulis@gmail.com'],
             [
-                'first_name' => 'Admin',
-                'surname' => 'Adminovich',
-                'phone' => '?', // replace or remove if optional
+                'first_name' => 'Rolandas',
+                'surname' => 'Zabulis',
+                'phone' => null,
                 'photo' => Str::of('https://i.pravatar.cc/150?img='. rand(1, 70)),
                 'email_verified_at' => now(),
                 'password' => bcrypt('password'), // set password here
-                // 'remember_token' => Str::random(10),
             ]
         );
 
