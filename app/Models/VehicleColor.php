@@ -14,6 +14,11 @@ class VehicleColor extends Model
         'name' => 'array',
     ];
 
+    public function scopeOrderByTranslation($query, $field, $locale)
+    {
+        return $query->orderByRaw("JSON_UNQUOTE(JSON_EXTRACT({$field}, '$.\"" . $locale . "\"')) ASC");
+    }
+
 
 
 }

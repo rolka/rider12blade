@@ -15,11 +15,13 @@ class UserVehicle extends Model
         'vehicle_make_id',
         'vehicle_model_id',
         'make_year',
-        'number_of_seats',
         'vehicle_color_id',
-        'photo',
-        'license_plate',
+        'photo'
     ];
+    protected $casts = [
+        // 'amenities' => 'array',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -37,5 +39,12 @@ class UserVehicle extends Model
         return $this->belongsTo(VehicleColor::class, 'vehicle_color_id');
     }
 
+    /**
+     * The amenities that belong to the user vehicle.
+     */
+    public function amenities()
+    {
+        return $this->belongsToMany(VehicleAmenity::class, 'user_vehicle_amenity', 'user_vehicle_id', 'vehicle_amenity_id');
+    }
 
 }
