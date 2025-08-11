@@ -1,7 +1,23 @@
-/*@import 'flowbite';*/
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Register Tailwind v4 plugins via CSS */
+@plugin "@tailwindcss/forms";
+@plugin "flowbite/plugin";
 
-/*@import 'flowbite';*/
+/* Tailwind v4: move theme customizations here */
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --color-white: #fefefe;
+  --color-frost: #ECF1F2;
+  --color-deep-teal: #1B3134;
+  --color-dark-teal: #0F353A;
+  --color-dusty-teal: #80A2A7;
+  --color-ash-gray: #AEAFAD;
+  --color-shadow: #C4D4D680;
+  --color-shadow-light: #C4D4D6;
+  --color-desaturated-teal: #41747B;
+  --color-steel-teal: #679095;
+  --color-light-teal: #878886;
+}
+
