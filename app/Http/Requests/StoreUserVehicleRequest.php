@@ -33,7 +33,9 @@ class StoreUserVehicleRequest extends FormRequest
 
             // 'vehicle_model_id' => ['required', 'integer', Rule::exists('vehicle_models', 'id')],
             'model' => ['required', 'integer', Rule::exists('vehicle_models', 'id')],
-            'vehicle_color_id' => ['required', 'integer', Rule::exists('vehicle_colors', 'id')],
+
+            // 'vehicle_color_id' => ['required', 'integer', Rule::exists('vehicle_colors', 'id')],
+            'color' => ['required', 'integer', Rule::exists('vehicle_colors', 'id')],
 
             'make_year' => ['required', 'integer', 'min:1900', 'max:' . ((int)date('Y') + 1)],
             // 'number_of_seats' => [ 'exclude_if:number_of_seats,null', Rule::excludeIf($this->number_of_seats === null), 'nullable', 'integer', 'min:1', 'max:7'], // Added based on your migration
@@ -59,11 +61,12 @@ class StoreUserVehicleRequest extends FormRequest
         return $rules;
     }
 
+    // note: right way to do it
     public function validated($key = null, $default = null)
     {
         return array_merge(
-            parent::validated(),
-            ['vehicle_model_id' => $this->input('model')]
+            parent::validated(), ['vehicle_model_id' => $this->input('model')],
+            parent::validated(), ['vehicle_color_id' => $this->input('color')],
         );
     }
     protected function prepareForValidation(): void
@@ -115,7 +118,7 @@ class StoreUserVehicleRequest extends FormRequest
      *
      * @return array
      */
-    public function messages()
+    public function messages(): array
     {
         return [
             'vehicle_make_id.required' => 'The vehicle make is required.',

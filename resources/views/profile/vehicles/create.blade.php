@@ -77,19 +77,19 @@
                                 @enderror
                             </div>
                             <div class="mb-4">
-                                <label for="vehicle_color_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label for="color" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                     {{ __('vehicle.color_label') }}
                                 </label>
-                                <select name="vehicle_color_id" id="vehicle_color_id" class="bg-white border border-frost text-ash-gray text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('vehicle_color_id') border-red-500 @enderror" required>
+                                <select name="color" id="color" class="bg-white border border-frost text-ash-gray text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 @error('color') border-red-500 @enderror" required>
                                     <option value="">{{ __('vehicle.color_label') }}</option>
                                     @foreach($vehicleColors as $color)
                                         <option value="{{ $color->id }}"
-                                            {{ old('vehicle_color_id', $vehicle->vehicle_color_id) == $color->id ? 'selected' : '' }}>
+                                            {{ old('color', $vehicle->vehicle_color_id) == $color->id ? 'selected' : '' }}>
                                             {{ $color->name }}
                                         </option>
                                     @endforeach
                                 </select>
-                                @error('vehicle_color_id')
+                                @error('color')
                                 <p class="text-red-500 text-xs italic mt-1">{{ $message }}</p>
                                 @enderror
                             </div>
