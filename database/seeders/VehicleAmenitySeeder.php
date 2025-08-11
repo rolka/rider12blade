@@ -17,23 +17,38 @@ class VehicleAmenitySeeder extends Seeder
             [
                 'name' => ['en' => 'Air Conditioning', 'lt' => 'Oro kondicionierius'],
                 'slug' => 'air-conditioning',
-                'icon' => 'fan' // Changed from 'phosphor-fan' to 'fan'
+                'icon' => 'fan'
             ],
             [
                 'name' => ['en' => 'Bluetooth, AUX, USB', 'lt' => 'Bluetooth, AUX, USB'],
                 'slug' => 'bluetooth-aux-usb',
-                'icon' => 'bluetooth-light' // Changed from 'phosphor-bluetooth-light' to 'bluetooth-light'
+                'icon' => 'bluetooth-light'
             ],
             [
                 'name' => ['en' => 'GPS Navigation', 'lt' => 'GPS navigacija'],
                 'slug' => 'gps-navigation',
-                'icon' => 'compass-light' // Changed from 'phosphor-compass-light' to 'compass-light'
+                'icon' => 'compass-light'
             ],
             [
                 'name' => ['en' => 'Heated Seats', 'lt' => 'Šildomos sėdynės'],
                 'slug' => 'heated-seats',
-                'icon' => 'seat-light' // Changed from 'phosphor-seat-light' to 'seat-light'
+                'icon' => 'seat-light'
             ],
+            [
+                'name' => ['en' => 'Non smoking', 'lt' => 'Automobilyje nerūkoma'],
+                'slug' => 'non-smoking',
+                'icon' => 'cigarette-slash-light'
+            ],
+            [
+                'name' => ['en' => 'Child-friendly', 'lt' => 'Draugiškas vaikams'],
+                'slug' => 'child-friendly',
+                'icon' => 'baby-light'
+            ],
+            [
+                'name' => ['en' => 'Pet-friendly', 'lt' => 'Draugiškas gyvūnams'],
+                'slug' => 'pet-friendly',
+                'icon' => 'paw-print-light'
+            ]
         ];
 
         foreach ($amenities as $amenity) {
