@@ -15,25 +15,22 @@
 
                         <div class="flex flex-col justify-center items-center lg:w-[35%] mx-auto lg:px-10 lg:py-8 flex-none">
                             <div class="w-full">
-                                <button type="button"
-                                        {{-- onclick="window.location.href='{{ route('auth.redirection', 'facebook') }}'"--}}
-                                        {{-- onclick="window.location.href=''"--}}
-                                        class="rounded-[20px] justify-center w-full text-desaturated-teal border border-desaturated-teal focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium text-base px-5 py-4 text-center inline-flex items-center me-2 mb-6 cursor-pointer hover:bg-desaturated-teal hover:text-white">
-                                    <!--hover:bg-[#4285F4]-->
-                                    <x-phosphor-facebook-logo-light class="w-5 h-5 ms-2 mr-2" />
+                                <x-auth-forms.button
+                                    type="button"
+                                    onclick="window.location.href='{{ route('home', 'facebook') }}'"
+                                    icon="phosphor-facebook-logo-light"
+                                >
                                     {{ __('auth.sign_with_facebook') }}
-                                </button>
+                                </x-auth-forms.button>
                             </div>
-
                             <div class="w-full">
-                                <button type="button"
-                                        {{-- onclick="window.location.href='{{ route('auth.redirection', 'facebook') }}'"--}}
-                                        {{-- onclick="window.location.href=''"--}}
-                                        class="flex rounded-[20px] justify-center w-full text-desaturated-teal border border-desaturated-teal focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium text-base px-5 py-4 text-center inline-flex items-center me-2 mb-6 cursor-pointer hover:bg-desaturated-teal hover:text-white">
-{{--                                    hover:bg-[#3b5998]--}}
-                                    <x-phosphor-google-logo-light class="w-5 h-5 ms-2 mr-2" />
+                                <x-auth-forms.button
+                                    type="button"
+                                    onclick="window.location.href='{{ route('home', 'google') }}'"
+                                    icon="phosphor-google-logo-light"
+                                >
                                     {{ __('auth.sign_with_google') }}
-                                </button>
+                                </x-auth-forms.button>
                             </div>
                             <p class="text-center">{{ __('general.or') }}</p>
                             @if ($errors->has('email'))
@@ -71,10 +68,11 @@
                                 </label>
                             </div>
                             <div class="w-full mt-2 mb-6">
-                                <button type="submit"
-                                        class="rounded-[20px] justify-center w-full text-desaturated-teal border border-desaturated-teal focus:ring-4 focus:outline-none focus:ring-[#3b5998]/50 font-medium text-base px-5 py-4 text-center inline-flex items-center me-2 cursor-pointer hover:bg-desaturated-teal hover:text-white">
+                                <x-auth-forms.button
+                                    type="submit"
+                                >
                                     {{ __('general.login') }}
-                                </button>
+                                </x-auth-forms.button>
                             </div>
                             <div>
                                 <a href="{{ route('register') }}" class="underline text-storm-teal">{{ __('general.no_account') }}</a>
