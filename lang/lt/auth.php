@@ -13,14 +13,13 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed' => 'Neteisingas el. pašto adresas arba slaptažodis',
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
-    'sign_with_facebook' => 'Login with Facebook',
-    'sign_with_google' => 'Login with Google',
+    'sign_with_facebook' => 'Prisijungti su Facebook',
+    'sign_with_google' => 'Prisijungti su Google',
 
-    'login_title' => 'How do you want to log in?',
-
+    'login_title' => 'Kaip nori prisijungti?',
 
 ];
