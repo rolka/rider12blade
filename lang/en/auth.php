@@ -21,6 +21,8 @@ return [
     'sign_with_google' => 'Login with Google',
 
     'login_title' => 'How do you want to log in?',
+    'register_title' => 'Join us',
+    'register' => 'Register',
 
 
 ];

@@ -21,5 +21,9 @@ return [
     'sign_with_google' => 'Prisijungti su Google',
 
     'login_title' => 'Kaip nori prisijungti?',
+    'register_title' => 'Prisijunk prie mūsų',
+    'register' => 'Registruotis',
+
+
 
 ];
