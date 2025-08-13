@@ -23,6 +23,9 @@ return [
     'login_title' => 'Kaip nori prisijungti?',
     'register_title' => 'Prisijunk prie mūsų',
     'register' => 'Registruotis',
+    'password_reset' => 'Slaptažodžio keitimas',
+    'password_reset_description' => 'Užmiršote arba norite pasikeisti savo paskyros slaptažodį? Įveskite elektroninio pašto adresą. Ten gausite tolimesnes slaptažodžio keitimo instrukcijas.',
+
 
 
 

@@ -17,6 +17,7 @@ return [
     'surname' => 'Pavardė',
     'phone' => 'Tel. numeris',
 
+    'send' => 'Send',
 
 
 ];

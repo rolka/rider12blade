@@ -24,5 +24,8 @@ return [
     'register_title' => 'Join us',
     'register' => 'Register',
 
+    'password_reset' => 'Password Reset',
+    'password_reset_description' => 'Forgot or want to change your account password? Enter your email address. You will receive further password change instructions there.',
+
 
 ];
