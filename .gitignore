@@ -26,3 +26,13 @@ Thumbs.db
 /public/vendor/blade-phosphor-icons/
 
 /docs/
+
+# Filament generated assets
+/public/css/filament/
+/public/js/filament/
+/public/vendor/filament/
+/public/fonts/filament/
+/.junie/mcp/mcp.json
+/.junie/guidelines.md
+/null
+/CLAUDE.md

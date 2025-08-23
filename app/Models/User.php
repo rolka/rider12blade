@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable implements MustVerifyEmail
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasName;
+use Filament\Panel;
+
+class User extends Authenticatable implements MustVerifyEmail, FilamentUser, HasName
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
+    /** @use HasFactory<\\Database\\Factories\\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -57,5 +61,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(UserVehicle::class);
     }
 
+    public function getFilamentName(): string
+    {
+        return $this->full_name;
+    }
 
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return true;
+    }
 }
