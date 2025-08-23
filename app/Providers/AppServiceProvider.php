@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\UserVehicle;
 use App\Policies\UserVehiclePolicy;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::policy(UserVehicle::class, UserVehiclePolicy::class);
+        Carbon::setLocale(app()->getLocale());
+
 
     }
 

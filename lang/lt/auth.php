@@ -20,6 +20,8 @@ return [
     'sign_with_facebook' => 'Prisijungti su Facebook',
     'sign_with_google' => 'Prisijungti su Google',
 
+    'sign_out' => 'Atsijungti',
+
     'login_title' => 'Kaip nori prisijungti?',
     'register_title' => 'Prisijunk prie mūsų',
     'register' => 'Registruotis',

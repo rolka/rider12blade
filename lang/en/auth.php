@@ -23,6 +23,7 @@ return [
     'login_title' => 'How do you want to log in?',
     'register_title' => 'Join us',
     'register' => 'Register',
+    'sign_out' => 'Sign out',
 
     'password_reset' => 'Password Reset',
     'password_reset_description' => 'Forgot or want to change your account password? Enter your email address. You will receive further password change instructions there.',

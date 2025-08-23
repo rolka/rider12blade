@@ -18,6 +18,10 @@ return [
     'phone' => 'Tel. numeris',
 
     'send' => 'Send',
+    'my_rides' => 'Kelionės',
+    'profile' => 'Profilis',
+    'payments' => 'Mokėjimai',
+
 
 
 ];

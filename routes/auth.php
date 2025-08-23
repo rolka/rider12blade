@@ -59,10 +59,18 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
-    Route::prefix('profile')->name('profile.')->group(function () {
-        Route::get('/', [ProfileController::class, 'edit'])->name('edit');
-        Route::patch('/', [ProfileController::class, 'update'])->name('update');
-        Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
+    Route::prefix('profile')->name('profile.')->controller(ProfileController::class)->group(function () {
+        /*todo: create controller method- index*/
+        Route::get('/', 'index')->name('index');
+        Route::get('edit', 'edit')->name('edit');
+        Route::patch('/', 'update')->name('update');
+        Route::delete('/', 'destroy')->name('destroy');
+
+        /*todo: create controllers*/
+        Route::resource('rides', UserVehicleController::class);
+        Route::resource('messages', UserVehicleController::class);
+        Route::resource('payments', UserVehicleController::class);
+
 
         Route::resource('vehicles', UserVehicleController::class);
         // ->parameters(['vehicles' => 'userVehicle'])

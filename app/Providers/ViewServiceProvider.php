@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\UserVehicle;
+use App\Models\Country;
 use App\Models\VehicleAmenity;
 use App\Models\VehicleColor;
 use App\Models\VehicleMake;
@@ -28,24 +28,31 @@ class ViewServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('profile.vehicles.create', function ($view) {
-            // $vehicleMakes = VehicleMake::orderBy('name')->get();
             $vehicleMakes = Cache::rememberForever('vehicle_makes', function () {
                 return VehicleMake::orderBy('name')->select('id', 'name')->get();
             });
-            // $vehicleModels = VehicleModel::orderBy('name')->get();
             $vehicleModels = Cache::rememberForever('vehicle_models', function () {
                 return VehicleModel::orderBy('name')->select('id', 'name')->get();
             });
             $vehicleColors = VehicleColor::orderByTranslation('name', App::getLocale())->get();
             $amenities = VehicleAmenity::all(); // Get all available amenities
-            // $vehicle = new UserVehicle();
             $view->with([
                 'vehicleColors' => $vehicleColors,
                 'amenities' => $amenities,
                 'vehicleMakes' => $vehicleMakes,
                 'vehicleModels' => $vehicleModels,
-                // 'vehicle' => $vehicle,
             ]);
         });
+
+        if (class_exists(Country::class)) {
+            View::composer('layouts.rider_navigation', function ($view) {
+                $countries = Country::all();
+                $currentLocale = app()->getLocale();
+                $currentCountry = Country::where('code', strtoupper($currentLocale))->first();
+
+                $view->with('countries', $countries);
+                $view->with('currentCountry', $currentCountry);
+            });
+        }
     }
 }

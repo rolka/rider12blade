@@ -13,6 +13,10 @@ return [
 
     'send' => 'Siųsti',
 
+    'my_rides' => 'My Rides',
+    'profile' => 'Profile',
+    'payments' => 'Payments',
+
 
 
 ];
