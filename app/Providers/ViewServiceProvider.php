@@ -47,9 +47,14 @@ class ViewServiceProvider extends ServiceProvider
 
         if (class_exists(Language::class)) {
             View::composer('layouts.rider_navigation', function ($view) {
-                $languages = Language::all();
+                $languages = Cache::rememberForever('languages_all', function () {
+                    return Language::select('id', 'code', 'name')->get();
+                });
+                
                 $currentLocale = app()->getLocale();
-                $currentLanguage = Language::where('code', strtolower($currentLocale))->first();
+                $currentLanguage = Cache::rememberForever('language_' . strtolower($currentLocale), function () use ($currentLocale) {
+                    return Language::where('code', strtolower($currentLocale))->select('id', 'code', 'name')->first();
+                });
 
                 $view->with('languages', $languages);
                 $view->with('currentLanguage', $currentLanguage);

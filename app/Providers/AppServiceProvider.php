@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\City;
+use App\Models\Language;
 use App\Models\UserVehicle;
+use App\Observers\CityObserver;
+use App\Observers\LanguageObserver;
 use App\Policies\UserVehiclePolicy;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Gate;
@@ -29,7 +33,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(UserVehicle::class, UserVehiclePolicy::class);
         Carbon::setLocale(app()->getLocale());
 
-
+        // Register model observers
+        Language::observe(LanguageObserver::class);
+        City::observe(CityObserver::class);
     }
 
 }

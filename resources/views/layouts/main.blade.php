@@ -7,6 +7,10 @@
 
     <title>{{ config('app.name', 'Laravel') . ' - ' . $title }}</title>
 
+    <!-- Preload critical assets -->
+    <link rel="preload" href="{{ asset('images/logos/rider-logo.png') }}" as="image" type="image/png">
+    <link rel="preload" href="{{ asset('images/content/main-content.png') }}" as="image" type="image/png">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
