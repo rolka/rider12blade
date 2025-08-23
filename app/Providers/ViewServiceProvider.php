@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Country;
+use App\Models\Language;
 use App\Models\VehicleAmenity;
 use App\Models\VehicleColor;
 use App\Models\VehicleMake;
@@ -44,14 +45,14 @@ class ViewServiceProvider extends ServiceProvider
             ]);
         });
 
-        if (class_exists(Country::class)) {
+        if (class_exists(Language::class)) {
             View::composer('layouts.rider_navigation', function ($view) {
-                $countries = Country::all();
+                $languages = Language::all();
                 $currentLocale = app()->getLocale();
-                $currentCountry = Country::where('code', strtoupper($currentLocale))->first();
+                $currentLanguage = Language::where('code', strtolower($currentLocale))->first();
 
-                $view->with('countries', $countries);
-                $view->with('currentCountry', $currentCountry);
+                $view->with('languages', $languages);
+                $view->with('currentLanguage', $currentLanguage);
             });
         }
     }

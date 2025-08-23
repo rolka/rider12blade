@@ -23,29 +23,23 @@
                 </ul>
             </div>
 
-            {{--            <p>{{ app()->getLocale() }}</p>--}}
-
-
             <!-- Language and User Dropdowns -->
             <div class="flex items-center space-x-2 md:space-x-0">
                 <!-- Language Selector Dropdown Button -->
                 <button id="language-toggle-btn" type="button"
                         class="flex items-center text-sm font-medium text-gray-900 rounded-full p-1 me-2 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
                         aria-expanded="false">
-                    @if($currentCountry)
-                        {{-- Use a dynamic Blade component to render the correct flag --}}
-                        <x-dynamic-component
-                            :component="'flag-country-'.strtolower($currentCountry->code)"
-                            class="w-6 h-6 me-3"
-                            style="border-radius: 9999px"
-                        />
-                        <span>{{ $currentCountry->name }}</span>
-                    @else
-                        {{-- Fallback if the country is not found for the current locale --}}
-                        <img class="w-6 h-6 rounded-full me-3" src="{{ asset('images/default-flag.svg') }}"
-                             alt="Default Flag">
-                        <span>{{ strtoupper(app()->getLocale()) }}</span>
-                    @endif
+                    @php
+                        $activeCode = strtolower($currentLanguage->code ?? app()->getLocale());
+                    @endphp
+                    <x-dynamic-component :component="'flag-language-' . $activeCode" class="w-6 h-6 me-3 rounded-full" />
+                    <span>
+                        @if($currentLanguage)
+                            {{ $currentLanguage->displayName() }}
+                        @else
+                            {{ strtoupper(app()->getLocale()) }}
+                        @endif
+                    </span>
                     <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                          viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -57,16 +51,16 @@
                 <div id="language-dropdown"
                      class="z-50 hidden absolute top-14 right-1/2 -mr-16 md:mr-0 md:right-auto md:w-40 md:top-14 my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-lg">
                     <ul class="py-2 font-medium" role="none">
-                        @foreach($countries as $country)
+                        @foreach($languages as $language)
+                            @php
+                                $code = strtolower($language->code);
+                            @endphp
                             <li>
-                                <a href="{{ route(Route::currentRouteName(), array_merge(Route::current()->parameters(),['locale' => \Illuminate\Support\Str::lower($country->code) ])) }}"
+                                <a href="{{ route(Route::currentRouteName(), array_merge(Route::current()->parameters(), ['locale' => $code])) }}"
                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                     <div class="inline-flex items-center">
-                                        <x-dynamic-component
-                                            :component="'flag-country-'.strtolower($country->code)"
-                                            class="w-4 h-4 me-2 rounded-full"
-                                        />
-                                        {{ $country->name }}
+                                        <x-dynamic-component :component="'flag-language-' . $code" class="w-4 h-4 me-2 rounded-full" />
+                                        {{ $language->displayName() }}
                                     </div>
                                 </a>
                             </li>
