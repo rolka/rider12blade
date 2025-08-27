@@ -10,11 +10,6 @@
         </div>
     </section>
 
-    @if( $vehicle->exists )
-        <p>Edit</p>
-        {{--@dump($vehicle)--}}
-    @endif
-
     <section class="bg-frost">
         <div class="py-12 mx-auto max-w-screen-xl">
             <div class="py-12">

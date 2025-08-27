@@ -70,4 +70,8 @@ class User extends Authenticatable implements MustVerifyEmail, FilamentUser, Has
     {
         return true;
     }
+    public function rides(): HasMany
+    {
+        return $this->hasMany(Ride::class, 'user_id');
+    }
 }

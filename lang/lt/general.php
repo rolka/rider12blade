@@ -21,6 +21,11 @@ return [
     'my_rides' => 'Kelionės',
     'profile' => 'Profilis',
     'payments' => 'Mokėjimai',
+    'joined_on' => 'Prisijungė',
+    'total_trips' => 'Iš viso kelionių',
+    'confirmed_information' => 'Patvirtinta informacija',
+
+
 
 
 

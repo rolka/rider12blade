@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CitySeeder::class);
         Ride::factory()->count(10)->create();
         $this->call(VehicleAmenitySeeder::class);
-
+        $this->call(LanguageSeeder::class);
 
     }
 }

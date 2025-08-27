@@ -11,6 +11,7 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\UserVehicleController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -59,6 +60,10 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 
+    /*view other user profiles*/
+    Route::get('/users/{user}', [UserController::class, 'show'])->where('user', '[0-9]+')->name('users.show');
+
+
     Route::prefix('profile')->name('profile.')->controller(ProfileController::class)->group(function () {
         /*todo: create controller method- index*/
         Route::get('/', 'index')->name('index');
@@ -72,6 +77,7 @@ Route::middleware('auth')->group(function () {
         Route::resource('payments', UserVehicleController::class);
 
 
+        /* create and etc. vehicles */
         Route::resource('vehicles', UserVehicleController::class);
         // ->parameters(['vehicles' => 'userVehicle'])
         //     ->except(['show']);

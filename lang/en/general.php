@@ -16,6 +16,9 @@ return [
     'my_rides' => 'My Rides',
     'profile' => 'Profile',
     'payments' => 'Payments',
+    'joined_on' => 'Joined on',
+    'total_trips' => 'Total trips',
+    'confirmed_information' => 'Confirmed information',
 
 
 

@@ -1,5 +1,3 @@
-{{--@php use Illuminate\Support\Facades\Route; @endphp--}}
-
 <nav class="bg-frost border-b border-gray-200">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <!-- Brand/Logo -->
