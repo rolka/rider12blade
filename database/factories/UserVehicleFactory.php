@@ -21,10 +21,10 @@ class UserVehicleFactory extends Factory
             'vehicle_make_id' => VehicleMake::inRandomOrder()->value('id'),
             'vehicle_model_id' => VehicleModel::inRandomOrder()->value('id'),
             'make_year' => $this->faker->year(),
-            'number_of_seats' => $this->faker->numberBetween(2, 7),
+            // 'number_of_seats' => $this->faker->numberBetween(2, 7),
             'vehicle_color_id' => VehicleColor::inRandomOrder()->value('id'),
             'photo' => Str::of('https://i.pravatar.cc/150?img='. rand(1, 70)),
-            'license_plate' => strtoupper($this->faker->bothify('??####')),
+            // 'license_plate' => strtoupper($this->faker->bothify('??####')),
         ];
     }
 }

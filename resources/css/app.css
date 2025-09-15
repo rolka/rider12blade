@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+@source "resources/**/*.blade.php";
+@source "resources/**/*.{html,js,ts,vue}";
+
 /* Register Tailwind v4 plugins via CSS */
 @plugin "@tailwindcss/forms";
 @plugin "flowbite/plugin";
@@ -23,5 +26,19 @@
   --color-input-bg: #FAFBF9;
   --color-confirm-green: #EFF4C9;
   --color-warning-red: #F98585C9;
+  --color-footer-bg: #1A434A;
+    /* my rides */
+  --color-button-color: #3FA0AF;
+  --color-button-bg: #ECF6F7;
+  --color-button-bg-hover: #39929F;
+
 }
 
+@layer components {
+    .btn-styles {
+        @apply bg-[#3FA0AF] text-white px-4 py-2 rounded-3xl hover:bg-[#39929F];
+    }
+    .btn-like-styles {
+        @apply bg-[#ECF1F2] text-[#A8BFC2] px-5 py-2 rounded-3xl hover:bg-frost text-center inline-block;
+    }
+}

@@ -1,4 +1,4 @@
-<footer class="p-4 bg-deep-teal sm:p-6">
+<footer class="p-4 bg-footer-bg sm:p-6">
     <div class="mx-auto max-w-screen-xl">
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">

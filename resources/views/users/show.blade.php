@@ -17,6 +17,7 @@
                     <div class="flex-1">
                         <div class="flex items-center gap-2 mb-4">
                             <x-phosphor-user-light class="text-deep-teal w-6 h-6"/>
+
                             <span>{{ __('general.joined_on') }} {{ $user->created_at->isoFormat('YYYY MMMM D') }}</span>
                         </div>
 {{--                        <div class="flex items-center gap-2 mb-4">--}}

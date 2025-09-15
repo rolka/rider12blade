@@ -6,7 +6,7 @@
     "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "blade-ui-kit/blade-ui-kit": "^0.7.0",
         "codeat3/blade-phosphor-icons": "^2.3",
         "filament/filament": "^4.0",
@@ -20,6 +20,7 @@
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
         "fakerphp/faker": "^1.23",
+        "laradumps/laradumps": "^4.0",
         "laravel/boost": "^1.0",
         "laravel/breeze": "^2.3",
         "laravel/pail": "^1.2.2",

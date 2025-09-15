@@ -114,7 +114,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('profile.index') }}"
+                                    <a href="{{ route('profile.info.index') }}"
                                        class="flex items-center justify-between px-4 py-4 text-sm hover:bg-frost hover:text-deep-teal rounded-[15px]">
                                         <span class="flex items-center gap-2">
                                             <x-phosphor-user-light class="w-4 h-4"/>

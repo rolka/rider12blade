@@ -12,6 +12,7 @@ use App\Http\Controllers\Auth\UserVehicleController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserRideController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -63,16 +64,24 @@ Route::middleware('auth')->group(function () {
     /*view other user profiles*/
     Route::get('/users/{user}', [UserController::class, 'show'])->where('user', '[0-9]+')->name('users.show');
 
-
     Route::prefix('profile')->name('profile.')->controller(ProfileController::class)->group(function () {
         /*todo: create controller method- index*/
+        // Route::get('/info', 'index')->name('');
+        Route::resource('/info', UserVehicleController::class);
+
         Route::get('/', 'index')->name('index');
         Route::get('edit', 'edit')->name('edit');
         Route::patch('/', 'update')->name('update');
         Route::delete('/', 'destroy')->name('destroy');
 
+        /* all profile rides */
+        Route::resource('rides', UserRideController::class);
+        // Additional custom routes
+        Route::patch('/rides/{ride}/cancel', [UserRideController::class, 'cancelRide'])->name('rides.cancel');
+        Route::patch('/ride-requests/{rideRequest}', [UserRideController::class, 'updateRideRequest'])
+            ->name('ride-requests.update');
+
         /*todo: create controllers*/
-        Route::resource('rides', UserVehicleController::class);
         Route::resource('messages', UserVehicleController::class);
         Route::resource('payments', UserVehicleController::class);
 
