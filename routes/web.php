@@ -16,6 +16,9 @@ Route::prefix('{locale}') // <-- Add the locale segment to the URL
     ->middleware(SetLocale::class) // <-- Add the middleware
     ->group(function () {
 
+        // Constrain any {ride} route parameter to numeric only to avoid conflicts with the {locale} segment
+        Route::pattern('ride', '[0-9]+');
+
         Route::get('/', [HomeController::class, 'index'])->name('home');
 
         Route::get('/search', [RideSearchController::class, 'index'])->name('search.index');

@@ -6,6 +6,7 @@ use App\Enums\RideStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Ride;
 
 class UserRideController extends Controller
 {
@@ -147,7 +148,8 @@ class UserRideController extends Controller
      */
     public function create()
     {
-        //
+        return 'asdasd';
+        // return view('profile.rides.create');
     }
 
     /**
@@ -161,9 +163,117 @@ class UserRideController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, string $locale, string $id)
     {
-        return view('profile.rides.show');
+        // Resourceful show; sidebar tab is determined dynamically or via the unified tabbed route
+        $ride = Ride::query()->findOrFail($id);
+        if ($ride->user_id !== Auth::id()) {
+            abort(404);
+        }
+
+        $currentTab = $this->determineCurrentTab($request, $ride);
+        $user = Auth::user();
+
+        $tabCounts = [
+            'my_rides' => $user->rides()
+                ->where('status', RideStatus::Scheduled->value)
+                ->where('date_time', '>', now())
+                ->count(),
+
+            'past_rides' => $user->rides()
+                ->where(function ($query) {
+                    $query->where('date_time', '<', now());
+                })
+                ->count(),
+
+            'cancelled_rides' => $user->rides()
+                ->where('status', RideStatus::Cancelled->value)
+                ->count(),
+        ];
+
+        return view('profile.rides.show', compact('ride', 'currentTab', 'tabCounts'));
+    }
+
+    public function showPastRide(Request $request, string $locale, Ride $ride): View
+    {
+        if ($ride->user_id !== Auth::id()) {
+            abort(404);
+        }
+
+        $currentTab = $this->determineCurrentTab($request, $ride);
+        $user = Auth::user();
+
+        $tabCounts = [
+            'my_rides' => $user->rides()
+                ->where('status', RideStatus::Scheduled->value)
+                ->where('date_time', '>', now())
+                ->count(),
+
+            'past_rides' => $user->rides()
+                ->where(function ($query) {
+                    $query->where('date_time', '<', now());
+                })
+                ->count(),
+
+            'cancelled_rides' => $user->rides()
+                ->where('status', RideStatus::Cancelled->value)
+                ->count(),
+        ];
+
+        return view('profile.rides.show', compact('ride', 'currentTab', 'tabCounts'));
+    }
+
+    public function showInTab(Request $request, string $locale, string $tab, Ride $ride): View
+    {
+        if ($ride->user_id !== Auth::id()) {
+            abort(404);
+        }
+
+        $allowed = ['my-rides', 'past-rides', 'cancelled-rides', 'ride-requests'];
+        $currentTab = in_array($tab, $allowed, true) ? $tab : $this->determineCurrentTab($request, $ride);
+        $user = Auth::user();
+
+        $tabCounts = [
+            'my_rides' => $user->rides()
+                ->where('status', RideStatus::Scheduled->value)
+                ->where('date_time', '>', now())
+                ->count(),
+
+            'past_rides' => $user->rides()
+                ->where(function ($query) {
+                    $query->where('date_time', '<', now());
+                })
+                ->count(),
+
+            'cancelled_rides' => $user->rides()
+                ->where('status', RideStatus::Cancelled->value)
+                ->count(),
+        ];
+
+        return view('profile.rides.show', compact('ride', 'currentTab', 'tabCounts'));
+    }
+
+    /**
+     * Determine which sidebar tab should be active for a given ride.
+     */
+    private function determineCurrentTab(Request $request, Ride $ride): string
+    {
+        $allowed = ['my-rides', 'past-rides', 'cancelled-rides', 'ride-requests'];
+        $fromRequest = $request->query('tab');
+        if (is_string($fromRequest) && in_array($fromRequest, $allowed, true)) {
+            return $fromRequest;
+        }
+
+        // Fallback inference based on ride state
+        if ($ride->status === RideStatus::Cancelled) {
+            return 'cancelled-rides';
+        }
+
+        if ($ride->status === RideStatus::Completed || optional($ride->date_time)->isPast()) {
+            return 'past-rides';
+        }
+
+        return 'my-rides';
     }
 
     /**

@@ -76,6 +76,16 @@ Route::middleware('auth')->group(function () {
 
         /* all profile rides */
         Route::resource('rides', UserRideController::class);
+
+
+        // Generic route to view a ride within a specific tab
+        Route::get('rides/{tab}/{ride}', [UserRideController::class, 'showInTab'])
+            ->where([
+                'ride' => '[0-9]+',
+                'tab' => 'my-rides|past-rides|cancelled-rides|ride-requests',
+            ])
+            ->name('rides.tab.show');
+
         // Additional custom routes
         Route::patch('/rides/{ride}/cancel', [UserRideController::class, 'cancelRide'])->name('rides.cancel');
         Route::patch('/ride-requests/{rideRequest}', [UserRideController::class, 'updateRideRequest'])
