@@ -7,6 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Developer Notes: Tailwind CSS v4 in JetBrains
+
+If you use PhpStorm/Rider/WebStorm/IntelliJ, point Tailwind to your v4 entry file here:
+
+Settings > Languages & Frameworks > Style Sheets > Tailwind CSS > add `resources\css\app.css` and remove anything under `public\css` (e.g., Filament output). See docs/jetbrains-tailwind-setup.md for the step-by-step guide.
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
