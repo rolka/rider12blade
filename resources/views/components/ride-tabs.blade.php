@@ -33,8 +33,17 @@
 <ul class="nav nav-tabs mb-4">
     @foreach($tabs as $key => $tab)
         <li class="nav-item">
+            @php
+                $href = match ($key) {
+                    'my-rides' => route('profile.rides.index'),
+                    'past-rides' => route('profile.rides.completed'),
+                    'cancelled-rides' => route('profile.rides.cancelled'),
+                    'ride-requests' => route('profile.ride-requests.index'),
+                    default => route('profile.rides.index'),
+                };
+            @endphp
             <a class="nav-link flex items-center gap-2 px-3 py-4 mb-2 text-base font-semibold hover:text-deep-teal rounded-[15px] {{ $currentTab === $key ? 'active bg-[#C3E2E6]' : 'hover:bg-frost' }}"
-               href="{{ route('profile.rides.index', ['tab' => $key]) }}">
+               href="{{ $href }}">
 
                 {{-- Display the icon --}}
                 <x-dynamic-component :component="$tab['icon']" class="w-5 h-5 flex-shrink-0" />

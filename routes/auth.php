@@ -77,8 +77,32 @@ Route::middleware('auth')->group(function () {
         /* all profile rides */
         Route::resource('rides', UserRideController::class);
 
+        // Clean URLs for filtered ride lists
+        Route::get('rides/completed', [UserRideController::class, 'index'])
+            ->defaults('tab', 'past-rides')
+            ->name('rides.completed');
+        Route::get('rides/cancelled', [UserRideController::class, 'index'])
+            ->defaults('tab', 'cancelled-rides')
+            ->name('rides.cancelled');
+        Route::get('ride-requests', [UserRideController::class, 'index'])
+            ->defaults('tab', 'ride-requests')
+            ->name('ride-requests.index');
 
-        // Generic route to view a ride within a specific tab
+        // Clean URLs for showing a ride within a specific tab
+        Route::get('rides/completed/{ride}', [UserRideController::class, 'showInTab'])
+            ->defaults('tab', 'past-rides')
+            ->where(['ride' => '[0-9]+'])
+            ->name('rides.completed.show');
+        Route::get('rides/cancelled/{ride}', [UserRideController::class, 'showInTab'])
+            ->defaults('tab', 'cancelled-rides')
+            ->where(['ride' => '[0-9]+'])
+            ->name('rides.cancelled.show');
+        Route::get('ride-requests/{ride}', [UserRideController::class, 'showInTab'])
+            ->defaults('tab', 'ride-requests')
+            ->where(['ride' => '[0-9]+'])
+            ->name('ride-requests.show');
+
+        // Generic route to view a ride within a specific tab (legacy)
         Route::get('rides/{tab}/{ride}', [UserRideController::class, 'showInTab'])
             ->where([
                 'ride' => '[0-9]+',
