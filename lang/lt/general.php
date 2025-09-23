@@ -40,11 +40,18 @@ return [
 
     'driver' => 'Vairuotojas',
     'passenger' => 'Keleivis',
+    'passengers' => 'Keleiviai',
+    'your_earnings' => 'Tavo uždarbis',
+    'trip_price_all_passengers' => 'Kelionės kaina visiems keleiviams',
+    'service_fee' => 'Aptarnavimo mokestis',
+    'total_earnings' => 'Visas uždarbis',
+    'edit_ride' => 'Koreguoti kelionę',
+    'copy_ride' => 'Kopijuoti kelionę',
+    'report_problem' => 'Pranešti apie problemą',
+    'cancel_ride' => 'Atšaukti kelionę',
+    'send_message' => 'Siusti žinutę',
 
-
-
-
-
+    'price' => 'Kaina',
 
 
 ];

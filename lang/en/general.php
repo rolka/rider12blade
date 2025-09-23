@@ -35,6 +35,18 @@ return [
 
     'driver' => 'Driver',
     'passenger' => 'Passenger',
+    'passengers' => 'Passengers',
+    'your_earnings' => 'Your Earnings',
+    'trip_price_all_passengers' => 'Trip price for all passengers',
+    'service_fee' => 'Service fee',
+    'total_earnings' => 'Total Earnings',
+    'edit_ride' => 'Edit Ride',
+    'copy_ride' => 'Copy Ride',
+    'report_problem' => 'Report Problem',
+    'cancel_ride' => 'Cancel Ride',
+    'send_message' => 'Send message',
+
+    'price' => 'Price',
 
 
 ];

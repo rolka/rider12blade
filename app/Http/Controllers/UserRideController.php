@@ -185,7 +185,7 @@ class UserRideController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('profile.rides.edit');
     }
 
     /**
@@ -203,4 +203,18 @@ class UserRideController extends Controller
     {
         //
     }
+    /*
+     * Cancel ride
+     * */
+    public function cancelRide( Request $request, string $locale, Ride $ride)
+    {
+        $ride->update(['status' => RideStatus::Cancelled->value]);
+
+        return response()->json([
+            'success' => true,
+            'status' => 'cancelled',
+        ]);
+    }
+
+
 }

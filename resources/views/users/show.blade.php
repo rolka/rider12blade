@@ -9,6 +9,7 @@
                         <div class="flex items-center gap-1">
                             <x-phosphor-star-fill class="w-4 h-4 text-steel-teal" />
                             <span class="text-sm text-ash-gray">5,0</span>
+
                         </div>
                     </div>
                 </div>

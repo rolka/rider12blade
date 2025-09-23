@@ -27,10 +27,14 @@
   --color-confirm-green: #EFF4C9;
   --color-warning-red: #F98585C9;
   --color-footer-bg: #1A434A;
-    /* my rides */
+    /* my rides, but apply these classes to other buttons */
   --color-button-color: #3FA0AF;
   --color-button-bg: #ECF6F7;
   --color-button-bg-hover: #39929F;
+
+  --color-danger-btn-bg: #FCC7C7;
+  --color-danger-btn-color: #CF3551;
+  --color-danger-btn-bg-hover: tomato;
 
 }
 
@@ -40,5 +44,8 @@
     }
     .btn-like-styles {
         @apply bg-[#ECF1F2] text-[#A8BFC2] px-5 py-2 rounded-3xl hover:bg-frost text-center inline-block;
+    }
+    .hr-styles {
+        @apply my-10 border-frost;
     }
 }
