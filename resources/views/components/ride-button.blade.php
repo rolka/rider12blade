@@ -15,6 +15,7 @@
 @endphp
 
 @if ($href)
+
     <a href="{{ $href }}" {{ $attributes->class($baseClasses) }}>
         {{ $text }}
     </a>

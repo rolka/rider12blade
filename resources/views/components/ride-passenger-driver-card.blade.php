@@ -1,7 +1,7 @@
 @props(['ride_data'])
 
 <div class="py-6 text-footer-bg">
-    <div class="flex items-center justify-between">
+    <div class="flex flex-col md:flex-row items-center justify-between">
         <!-- Left section: User info and trip details -->
         <div class="flex items-center space-x-4 flex-1">
             <!-- User Avatar -->
@@ -16,7 +16,7 @@
             <!-- User details -->
             <div class="flex-1 min-w-0">
                 <!-- User name -->
-                <h3 class="text-2xl font-bold truncate flex">
+                <h3 class="text-2xl font-bold flex">
                     {{ $ride_data->user->full_name }}
                     <x-ride-rating :rating="4.5"/>
                 </h3>
@@ -36,7 +36,7 @@
         </div>
 
         <!-- Right section: Message button -->
-        <div class="flex-shrink-0 ml-6">
+        <div class="w-full md:w-auto ml-0 md:ml-6 mt-4">
             <x-ride-button :text="__('general.send_message')" small />
         </div>
     </div>

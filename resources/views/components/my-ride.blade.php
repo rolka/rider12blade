@@ -29,7 +29,7 @@
                 <h3 class="text-2xl font-bold mb-6">{{ __('general.your_earnings') }}</h3>
                 <div class="flex items-center justify-between text-light-teal">
                     <p class="font-semibold text-lg">{{ __('general.trip_price_all_passengers') }}</p>
-                    <p>{{ $ride->formatted_price }}</p>
+                    <p class="whitespace-nowrap">{{ $ride->formatted_price }}</p>
                 </div>
                 <hr class="hr-styles my-6">
                 <div class="flex items-center justify-between text-light-teal">
@@ -37,9 +37,9 @@
                     <p>1,8 EUR</p>
                 </div>
                 <hr class="hr-styles my-6">
-                <div class="flex items-center justify-between text-footer-bg">
-                    <p class="font-bold text-2xl">{{ __('general.total_earnings') }}</p>
-                    <p>13,2 EUR</p>
+                <div class="flex items-center justify-between text-footer-bg font-bold text-2xl">
+                    <p>{{ __('general.total_earnings') }}</p>
+                    <p>{{ $ride->formatted_price }}</p> {{--note: has to be price after fee--}}
                 </div>
             </section>
             {{-- Action buttons --}}

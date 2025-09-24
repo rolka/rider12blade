@@ -16,7 +16,7 @@
                 </div>
                 <!-- Main Content -->
                 <div class="flex-1 flex flex-col">
-                    <main class="flex-1 px-6 overflow-y-auto">
+                    <main class="flex-1 px-6">
                         {{ $slot }}
                     </main>
                 </div>
