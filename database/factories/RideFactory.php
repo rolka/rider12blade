@@ -31,9 +31,31 @@ class RideFactory extends Factory
             'departure_id' => City::inRandomOrder()->value('id'),
             'destination_id' => City::inRandomOrder()->value('id'),
             'price' => $this->faker->randomFloat(2, 5, 100),
-            'available_seats' => $this->faker->numberBetween(1, 7),
+            'total_seats' => $this->faker->numberBetween(1, 7),
+            'available_seats' => fn (array $attributes) => $this->faker->numberBetween(0, $attributes['total_seats']),
             'date_time' => $dateTime,
             'status' => $status,
         ];
+    }
+    public function scheduled(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'date_time' => $this->faker->dateTimeBetween('+1 day', '+1 month'),
+            'status' => RideStatus::Scheduled->value,
+        ]);
+    }
+    public function completed(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'date_time' => $this->faker->dateTimeBetween('-1 month', '-1 day'),
+            'status' => RideStatus::Completed->value,
+        ]);
+    }
+    public function cancelled(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'date_time' => $this->faker->dateTimeBetween('-1 month', '-1 day'),
+            'status' => RideStatus::Cancelled->value,
+        ]);
     }
 }

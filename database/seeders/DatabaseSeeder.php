@@ -43,6 +43,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CountrySeeder::class);
         $this->call(CitySeeder::class);
         Ride::factory()->count(10)->create();
+        Ride::factory(3)->scheduled()->create(['user_id' => 1]);
+        Ride::factory(2)->completed()->create(['user_id' => 1]);
+        Ride::factory(2)->cancelled()->create(['user_id' => 1]);
         $this->call(VehicleAmenitySeeder::class);
         $this->call(LanguageSeeder::class);
 

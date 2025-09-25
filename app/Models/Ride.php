@@ -93,4 +93,14 @@ class Ride extends Model
     {
         return $query->where('status', RideStatus::Cancelled->value);
     }
+    // Update available_seats whenever request status changes
+    public function updateAvailableSeats(): void
+    {
+        $bookedSeats = $this->rideRequests()
+            ->where('status', 'approved')
+            ->sum('seats_requested');
+
+        $this->update(['available_seats' => $this->total_seats - $bookedSeats]);
+    }
+
 }
