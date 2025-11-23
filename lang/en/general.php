@@ -48,5 +48,30 @@ return [
 
     'price' => 'Price',
 
+    'departure_destination' => 'Departure – Destination',
+    'going_from' => 'Going from',
+    'going_to' => 'Going to',
+    'when_travel' => 'When will you travel?',
+    'date' => 'Date',
+
+    'select' => 'Select',
+    'time' => 'Time',
+
+    'car_you_will_travel_with' => 'Car you will travel with?',
+    'your_cars' => 'Your cars',
+
+    'year' => 'Year',
+    'color' => 'Color',
+
+    'load_more' => 'Load more',
+    'additional_info_travelers' => 'Additional information for travelers:',
+    'child_friendly' => 'Child friendly',
+    'pet_friendly' => 'Pet friendly',
+    'no_smoking_in_car' => 'No smoking in the car',
+    'music_in_car' => 'Music in the car',
+
+
+
+
 
 ];

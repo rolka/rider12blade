@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') . ' - ' . $title }}</title>
+{{--    <title>{{ config('app.name', 'Laravel') . ' - ' . $title }}</title>--}}
 
     <!-- Preload critical assets -->
-    <link rel="preload" href="{{ asset('images/logos/rider-logo.png') }}" as="image" type="image/png">
-    <link rel="preload" href="{{ asset('images/content/main-content.png') }}" as="image" type="image/png">
+{{--    <link rel="preload" href="{{ asset('images/logos/rider-logo.png') }}" as="image" type="image/png">--}}
+{{--    <link rel="preload" href="{{ asset('images/content/main-content.png') }}" as="image" type="image/png">--}}
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -20,6 +20,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
+{{--    @livewireStyles--}}
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -44,5 +45,6 @@
     </main>
     @include('layouts.footer')
 </div>
+{{--@livewireScripts--}}
 </body>
 </html>

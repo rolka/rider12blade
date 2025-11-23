@@ -1,12 +1,11 @@
 import './bootstrap';
 
-import Alpine from 'alpinejs';
+// import Alpine from 'alpinejs';
 import 'flowbite';
 import { Datepicker } from "flowbite";
 
-window.Alpine = Alpine;
-
-Alpine.start();
+// window.Alpine = Alpine;
+// Alpine.start();
 
 document.addEventListener('DOMContentLoaded', function () {
     // alert('Hello World');

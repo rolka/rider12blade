@@ -21,4 +21,6 @@ return [
     'upload_formats' => 'SVG, PNG, JPG or GIF (MAX. 800x400px)',
     'ready_to_add' => 'Ready to add your vehicle?',
     'submit_button' => 'Yes',
+    'upload_vehicle' => 'Add vehicle',
+
 ];

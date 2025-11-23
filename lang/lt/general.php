@@ -53,5 +53,27 @@ return [
 
     'price' => 'Kaina',
 
+    'departure_destination' => 'Išvykimo vieta-kelionės tikslas',
+    'going_from' => 'Važiuosiu iš',
+    'going_to' => 'Važiuosiu į',
+    'when_travel' => 'Kada keliausi?',
+    'date' => 'Data',
+
+    'select' => 'Pasirinkti',
+    'time' => 'Laikas',
+
+    'car_you_will_travel_with' => 'Automobilis kuriuo keliausi?',
+    'your_cars' => 'Tavo automobiliai',
+    'year' => 'Metai',
+    'color' => 'Spalva',
+
+    'load_more' => 'Įkelti daugiau',
+
+    'additional_info_travelers' => 'Papildoma informacija keliaujantiems:',
+    'child_friendly' => 'Draugiškas vaikams',
+    'pet_friendly' => 'Draugiškas gyvūnams',
+    'no_smoking_in_car' => 'Automobilyje nerūkoma',
+    'music_in_car' => 'Muzika automobilyje',
+
 
 ];

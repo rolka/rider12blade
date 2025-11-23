@@ -23,4 +23,6 @@ return [
     'upload_formats' => 'SVG, PNG, JPG arba GIF (MAKS. 800x400px)',
     'ready_to_add' => 'Pasiruošęs pridėti savo automobilį?',
     'submit_button' => 'Taip',
+    'upload_vehicle' => 'Įkelti automobilį',
+
 ];
