@@ -3,14 +3,14 @@
         {{--        <div class="py-8 mx-auto max-w-screen-xl lg:py-16  ">--}}
         <div class="w-full">
             <p>
-                <img src="{{ asset('images/content/main-content.png') }}" alt="" class="w-full">
+                <img src="{{ asset('images/content/main-page.png') }}" alt="" class="w-full">
             </p>
         </div>
     </section>
     <section class="bg-frost">
         <div class="py-8 mx-auto max-w-screen-xl lg:py-16">
             <div class="mb-6">
-                <h2 class="text-2xl font-bold text-deep-teal">Tavo kelionė už mažesnę kainą.</h2>
+                <h2 class="text-2xl font-bold text-deep-teal">{{ __('general.your_journey_for_less') }}</h2>
             </div>
             <div class="bg-white px-6 py-4 rounded-3xl">
                 <form action="{{ route('search.index') }}" method="GET" class="flex flex-wrap items-end gap-4 w-full">
