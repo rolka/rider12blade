@@ -3,7 +3,7 @@
         {{--        <div class="py-8 mx-auto max-w-screen-xl lg:py-16  ">--}}
         <div class="w-full">
             <p>
-                <img src="{{ asset('images/content/main-page.png') }}" alt="" class="w-full">
+                <img src="{{ asset('images/content/main-page.png') }}" alt="{{ config('app.name') }}" class="w-full">
             </p>
         </div>
     </section>
