@@ -75,5 +75,24 @@ return [
     'no_smoking_in_car' => 'Automobilyje nerūkoma',
     'music_in_car' => 'Muzika automobilyje',
 
+    'trip_price_per_passenger' => 'Kelionės kaina vienam keleiviui',
+
+    'passenger_capacity_question' => 'Kiek keleivių galėsi priimti?',
+    'trip_comment_for_passengers' => 'Gal norėtum palikti komentarą keleiviams?',
+    'trip_meeting_point_note' => 'Tavo susitikimo vieta. Nevažiuojate greitkeliu? Turite ribotą vietą bagažinėje? Leiskite keleiviams žinoti',
+    'momentary_trip_booking' => 'Momentinis kelionės rezervavimas',
+    'more_convenience' => 'Daugiau patogumo',
+    'no_need_to_review_each_request' => 'Nereikia peržiūrėti kiekvieno keleivio prašymo',
+    'find_more_passengers' => 'Rask daugiau keleivių',
+    'they_want_quick_answer' => 'Jie nori gauti greitą atsakymą',
+    'enable_instant_trip_booking' => 'Įjungti momentinį kelionės užsakymą',
+    'what_is_instant_trip_booking' => 'Kas yra momentinis kelionės užsakymas?',
+    'more_passengers_find_them_faster' => "Daugiau keleivių<br>atrask juos<br>daug greičiau",
+
+    'your_journey_for_less' => 'Tavo kelionė už mažesnę kainą.',
+
+
+
+
 
 ];

@@ -70,6 +70,73 @@ return [
     'no_smoking_in_car' => 'No smoking in the car',
     'music_in_car' => 'Music in the car',
 
+    'trip_price_per_passenger' => 'Trip price per passenger',
+
+    'passenger_capacity_question' => 'How many passengers can you take?',
+    'trip_comment_for_passengers' => 'Would you like to leave a comment for the passengers?',
+    'trip_meeting_point_note' => "Your meeting point. Not taking the highway? Limited space in the trunk? Let the passengers know",
+    'momentary_trip_booking' => 'Instant trip booking',
+    'more_convenience' => 'More convenience',
+    'no_need_to_review_each_request' => 'No need to review each passenger request',
+    'find_more_passengers' => 'Find more passengers',
+    'they_want_quick_answer' => 'They want to get a quick response',
+    'enable_instant_trip_booking' => 'Enable instant trip booking',
+    'what_is_instant_trip_booking' => 'What is instant trip booking?',
+    'more_passengers_find_them_faster' => "More passengers<br>find them<br>much faster",
+
+    'your_journey_for_less' => 'Your journey for a lower price.',
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
