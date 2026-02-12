@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', ['locale' => app()->getLocale()]));
+        return redirect()->intended(route('profile.rides.index', ['locale' => app()->getLocale()]));
 
     }
 
