@@ -28,6 +28,11 @@ return [
     'password_reset' => 'Slaptažodžio keitimas',
     'password_reset_description' => 'Užmiršote arba norite pasikeisti savo paskyros slaptažodį? Įveskite elektroninio pašto adresą. Ten gausite tolimesnes slaptažodžio keitimo instrukcijas.',
 
+    'verify_your_email' => 'Patvirtinkite savo el. paštą',
+    'verify_email_message' => 'Dėkojame, kad užsiregistravote! Prieš pradedant, patvirtinkite savo el. pašto adresą paspausdami nuorodą, kurią ką tik išsiuntėme. Jei negavote laiško, mielai išsiųsime dar kartą.',
+    'verification_link_sent' => 'Nauja patvirtinimo nuoroda buvo išsiųsta jūsų registracijos metu nurodytu el. pašto adresu.',
+    'resend_verification_email' => 'Siųsti patvirtinimo laišką dar kartą',
+    'log_out' => 'Atsijungti',
 
 
 
